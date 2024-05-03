@@ -13,6 +13,7 @@ RUN npm install -g @angular/cli
 RUN mkdir /app
 WORKDIR /app
 RUN ng new --interactive false --style css  app
+RUN npm install bootstrap@4 --save
 RUN useradd -c "Angular appllicaiton user" angular
 RUN chown -R angular /app
 EXPOSE 4200
