@@ -15,5 +15,6 @@ WORKDIR /app
 RUN ng new app
 RUN useradd -c "Angular appllicaiton user" angular
 RUN chown -R angular /app
+EXPOSE 4200
 USER angular
 CMD ["ng", "serve"]
