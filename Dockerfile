@@ -18,4 +18,5 @@ RUN chown -R angular /app
 EXPOSE 4200
 WORKDIR /app/app
 USER angular
-CMD ["ng", "serve"]
+ENTRYPOINT ["ng"]
+CMD ["serve","--host","0.0.0.0"]
