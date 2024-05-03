@@ -12,9 +12,10 @@ RUN aptitude install -y npm
 RUN npm install -g @angular/cli
 RUN mkdir /app
 WORKDIR /app
-RUN ng new app
+RUN ng new --interactive false --style css  app
 RUN useradd -c "Angular appllicaiton user" angular
 RUN chown -R angular /app
 EXPOSE 4200
+WORKDIR /app/app
 USER angular
 CMD ["ng", "serve"]
