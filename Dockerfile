@@ -10,9 +10,10 @@ RUN apt update
 RUN apt install -y nodejs
 RUN aptitude install -y npm
 RUN npm install -g @angular/cli
-RUN useradd -c "Angular appllicaiton user" angular
-RUN mkdir /app && chown -R angular /app
+RUN mkdir /app
 WORKDIR /app
-USER angular
 RUN ng new app
+RUN useradd -c "Angular appllicaiton user" angular
+RUN chown -R angular /app
+USER angular
 CMD ["ng", "serve"]
