@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  angular6container:
+    container_name: aastzoom
+    hostname: aastzoom
+    image: angular6
+    restart: always
+    ports:
+      - 4200:4200
+    volumes:
+      - aastzoom_vol:/app/app
+
+volumes:
+     aastzoom_vol:
+
