@@ -9,10 +9,12 @@ RUN apt update
 RUN apt install -y nodejs
 RUN aptitude install -y npm
 RUN npm install -g @angular/cli
+RUN npm install -g typescript
 RUN mkdir /app
-RUN useradd -c "Angular appllicaiton user" angular
+RUN useradd -o -u 1000 -c "Angular appllicaiton user" angular -d /app -s /bin/bash
 EXPOSE 4200
 ADD startangular.sh /
 RUN chmod a+x /startangular.sh
+USER angular
 WORKDIR /app
 ENTRYPOINT ["/startangular.sh"]
